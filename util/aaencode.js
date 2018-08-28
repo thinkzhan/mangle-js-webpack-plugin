@@ -64,4 +64,11 @@ function aaencode(text) {
   return r;
 }
 
-module.exports = aaencode
+
+module.exports = function (source) {
+  return {
+    getObfuscatedCode: function () {
+      return aaencode(source)
+    }
+  }
+}

@@ -1,24 +1,25 @@
 {
   "name": "mangle-js-webpack-plugin",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "thinkzhan",
   "main": "index.js",
   "files": [
     "lib",
-    "index.js"
+    "index.js",
+    "util"
   ],
   "devDependencies": {
-    "chalk": "^2.4.1",
     "jasmine": "^3.1.0",
     "rimraf": "^2.6.2",
-    "webpack": "^4.12.0"
+    "webpack": "^4.12.0",
+    "javascript-obfuscator": "^0.18.1"
   },
   "dependencies": {},
   "scripts": {
     "test": "jasmine"
   },
-  "repository": "https://github.com/thinkzhan/mangle-js-webpack-plugin.git",
+  "repository": "https://github.com/liberalist1991/mangle-js-webpack-plugin.git",
   "keywords": [
     "Webpack",
     "js",

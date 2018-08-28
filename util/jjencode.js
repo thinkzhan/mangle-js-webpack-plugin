@@ -1,5 +1,5 @@
 function jjencode(text, prefix) {
-  var gv = prefix || '$';
+  var gv = prefix;
   var r = "";
   var n;
   var t;
@@ -80,4 +80,12 @@ function jjencode(text, prefix) {
   return r;
 }
 
-module.exports = jjencode
+module.exports = function (source, config = {
+  prefix: 'thinkzhan'
+}) {
+  return {
+    getObfuscatedCode: function () {
+      return jjencode(source, config.prefix)
+    }
+  }
+}

@@ -77,7 +77,7 @@ describe('MangleJsClassPlugin', () => {
   }, ['ﾟωﾟﾉ= /｀ｍ´）'], done);
   });
 
-  it('match specific file', (done) => {
+  it('match include file with jjencode config', (done) => {
     testPlugin({
       entry: path.join(__dirname, 'fixtures/case2.js'),
       output: {
@@ -85,7 +85,8 @@ describe('MangleJsClassPlugin', () => {
         filename: 'case2.js'
       },
       plugins: [new MangleJsClassPlugin({
-        matched: /case2\.js.*$/,
+        include: /case2\.js.*$/,
+        algorithm: 'jjencode',
         algorithmConfig: {
           prefix: 'focus'
         }
@@ -93,7 +94,7 @@ describe('MangleJsClassPlugin', () => {
     }, ['focus.$$$'], done);
   });
 
-  it('ignore not matched file', (done) => {
+  it('ignore excluded file', (done) => {
     testPlugin({
       entry: path.join(__dirname, 'fixtures/case3.js'),
       output: {
@@ -101,8 +102,19 @@ describe('MangleJsClassPlugin', () => {
         filename: 'case3.js'
       },
       plugins: [new MangleJsClassPlugin({
-        matched: /case2\.js.*$/
+        exclude: /case3\.js.*$/
       })]
-  }, ['webpack'], done);
+  }, ['installedModules[moduleId]'], done);
+  });
+
+  it('use default config', (done) => {
+    testPlugin({
+      entry: path.join(__dirname, 'fixtures/case3.js'),
+      output: {
+        path: OUTPUT_DIR,
+        filename: 'case3.js'
+      },
+      plugins: [new MangleJsClassPlugin()]
+  }, ['_0x'], done);
   });
 });
