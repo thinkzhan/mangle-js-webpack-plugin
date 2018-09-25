@@ -80,12 +80,10 @@ function jjencode(text, prefix) {
   return r;
 }
 
-module.exports = function (source, config = {
-  prefix: 'thinkzhan'
-}) {
+module.exports = function (source, config = {}) {
   return {
     getObfuscatedCode: function () {
-      return jjencode(source, config.prefix)
+      return jjencode(source, config.prefix || 'thinkzhan')
     }
   }
 }

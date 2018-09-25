@@ -1,6 +1,6 @@
 {
   "name": "mangle-js-webpack-plugin",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "license": "MIT",
   "author": "thinkzhan",
   "main": "index.js",

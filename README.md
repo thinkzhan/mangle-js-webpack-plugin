@@ -50,3 +50,5 @@ plugins: [new MangleJsClassPlugin({
   }
 })]
 ```
+
+建议：用在UglifyJsPlugin之后，排除vendor文件加密
